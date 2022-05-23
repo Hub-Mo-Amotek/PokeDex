@@ -23,7 +23,9 @@
 }
 #pokemon-section #pokemon-img-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
   border: 1px solid green;
   width: 45%;
 }
