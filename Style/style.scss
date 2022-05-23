@@ -27,12 +27,27 @@
         flex-direction:column;
         border: 1px solid green;
         width: 45%;
+            #pokemon-image {
+                width: 20rem;
+            }
     }
     #pokemon-info-container {
         display: flex; 
-        justify-content: center;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
         border: 1px solid green;
         width: 30%;
+            #moves-container {
+
+                ul {
+
+                    li{
+                        list-style: none;
+                    }
+                }
+            }
+
     }
 }
 #search-container {
