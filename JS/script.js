@@ -33,21 +33,24 @@ async function getPokemon() {
     
     let EvoApi = await fetch(Pokemon.species.url);
     let evolution = await EvoApi.json();
-    let prevEvoApi = await fetch(`https://pokeapi.co/api/v2/pokemon/${evolution.evolves_from_species.name}`)
-    let prevEvolution = await prevEvoApi.json()
-    evolutionTarget.innerHTML = '';
-    
-    console.log(evolution.evolves_from_species);
-        // it works perfectly, but still want to work on catch to display that there is no previous version
-        if (evolution.evolves_from_species == false) {
-            evolution.innerHTML += "no previous form"
-        }
-        else {
-            evolutionTarget.innerHTML += `<h3> Evolves from </h3> ${evolution.evolves_from_species.name}`;
-            previousEvoImg.setAttribute('src', prevEvolution.sprites.other.home.front_default);
-        }
+    try {
+        let prevEvoApi = await fetch(`https://pokeapi.co/api/v2/pokemon/${evolution.evolves_from_species.name}`)
+        let prevEvolution = await prevEvoApi.json()
+        evolutionTarget.innerHTML = '';
+        evolutionTarget.innerHTML += `<h3> Evolves from </h3> ${evolution.evolves_from_species.name}`;
+        previousEvoImg.setAttribute('src', prevEvolution.sprites.other.home.front_default);
+    }
+    catch(error) {
+        console.log('error10111', error);
+        evolutionTarget.innerHTML = '';
+        evolutionTarget.innerHTML += `<h3>No previous form</h3>`;
+        previousEvoImg.setAttribute('src', 'images/pokeball-icon-27049.png');
+    }
 
-    // fetching previous form img
+        
+
+
+
 
 
 
