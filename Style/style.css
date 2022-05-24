@@ -17,7 +17,9 @@
 }
 #pokemon-section #type-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid green;
   width: 25%;
 }

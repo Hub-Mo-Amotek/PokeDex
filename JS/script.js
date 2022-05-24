@@ -2,34 +2,64 @@
 document.getElementById('run').addEventListener('click', (e) => {
     e.preventDefault();
     getPokemon();
+
 async function getPokemon() {
     let PokeName = document.getElementById('pokemon-name');
     let PokeId = document.getElementById('pokemon-id');
     let PokeImage = document.getElementById('pokemon-image');
-    let input = document.getElementById('search').value;
-    let moveList = document.getElementById('moves-list');
+    let input = document.getElementById('search').value.toLowerCase();
+    let movesList = document.getElementById('moves-list');
+    let type = document.getElementById('type');
+    let evolutionTarget = document.getElementById('evolution');
+    let previousEvoImg = document.getElementById('prevEvoImg');
 
     let Api = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
     let Pokemon = await Api.json();
     PokeName.innerHTML = Pokemon.name;
-    PokeImage.setAttribute('src', Pokemon.sprites.front_default)
-    PokeId.innerHTML = `id:${Pokemon.id}`;
-
-    let loopTime = 4
-    if ( Pokemon.moves.length < 4) {
-       loopTime = Pokemon.moves.length
-    }
+    PokeImage.setAttribute('src', Pokemon.sprites.other.home.front_default)
+    PokeId.innerHTML = `#${Pokemon.id}`;
+    movesList.innerHTML = '';
+    if (Pokemon.moves.length > 4) {
+            for (let i = 0; i < 4; i++) {
+                movesList.innerHTML +=`<li> ${Pokemon.moves[i].move.name} </li>`;
+            }
+        }
     else {
-        loopTime = 4;
+        for (let i = 0; i < Pokemon.moves.length; i++) {
+            movesList.innerHTML += `<li>${Pokemon.moves[i].move.name}</li>`;
     }
+}
+    type.innerHTML = Pokemon.types[0].type.name;
+    
+    let EvoApi = await fetch(Pokemon.species.url);
+    let evolution = await EvoApi.json();
+    let prevEvoApi = await fetch(`https://pokeapi.co/api/v2/pokemon/${evolution.evolves_from_species.name}`)
+    let prevEvolution = await prevEvoApi.json()
+    evolutionTarget.innerHTML = '';
+    
+    console.log(evolution.evolves_from_species);
+        // it works perfectly, but still want to work on catch to display that there is no previous version
+        if (evolution.evolves_from_species == false) {
+            evolution.innerHTML += "no previous form"
+        }
+        else {
+            evolutionTarget.innerHTML += `<h3> Evolves from </h3> ${evolution.evolves_from_species.name}`;
+            previousEvoImg.setAttribute('src', prevEvolution.sprites.other.home.front_default);
+        }
 
-    for (i = 0; i < loopTime; i++) {
-        let li = document.createElement('li')
-        moveList.append(li);
-        li.append(Pokemon.moves[i])
-    }
+    // fetching previous form img
 
-}   
+
+
+
+
+        
+
+
+    
+
+    
+}
 
 });
 
