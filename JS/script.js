@@ -3,6 +3,7 @@ document.getElementById('run').addEventListener('click', (e) => {
     e.preventDefault();
     getPokemon();
 
+
 async function getPokemon() {
     let PokeName = document.getElementById('pokemon-name');
     let PokeId = document.getElementById('pokemon-id');
@@ -12,6 +13,10 @@ async function getPokemon() {
     let type = document.getElementById('type');
     let evolutionTarget = document.getElementById('evolution');
     let previousEvoImg = document.getElementById('prevEvoImg');
+
+
+
+    
 
     let Api = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
     let Pokemon = await Api.json();
@@ -28,7 +33,8 @@ async function getPokemon() {
         for (let i = 0; i < Pokemon.moves.length; i++) {
             movesList.innerHTML += `<li>${Pokemon.moves[i].move.name}</li>`;
     }
-}
+    }
+
     type.innerHTML = Pokemon.types[0].type.name;
     
     let EvoApi = await fetch(Pokemon.species.url);
@@ -46,21 +52,6 @@ async function getPokemon() {
         evolutionTarget.innerHTML += `<h3>No previous form</h3>`;
         previousEvoImg.setAttribute('src', 'images/pokeball-icon-27049.png');
     }
-
-        
-
-
-
-
-
-
-
-
-        
-
-
-    
-
     
 }
 

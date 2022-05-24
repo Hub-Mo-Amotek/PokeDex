@@ -1,8 +1,9 @@
 #Header-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     h1 {
         background-color:aqua;
+        border: 1px solid #0AC;
         border-radius: 10px 70px;
         padding: 1rem 10rem;
         box-shadow: aqua 0rem 0rem 2rem;
@@ -12,23 +13,57 @@
     height: 70vh;
     display: flex;
     justify-content: center;
-    border: 1px solid red;
 
     #type-container {
         display: flex; 
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
-        border: 1px solid green;
-        width: 25%;
+        width: 30%;
+            h2 {
+                border: 1px solid #0AC;
+                padding: .5rem 3rem;
+                border-radius: 30px 10px 30px 10px;
+                box-shadow: aqua 0rem 0rem .5rem, aqua 0rem 0rem 1rem inset;
+            }
+            #pokemon-type {
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                    h3 {
+                        background: aqua;
+                        border: 1px solid #0AC;
+                        padding: .2rem 1rem;
+                        border-radius: 30px;
+                        box-shadow: aqua 0rem 0rem .5rem;
+                    }
+            }
+            #previous-evo-container {
+                border: 1px solid #0AC;
+                padding: 2rem;
+                border-radius: 10px 50px 30px;
+                box-shadow: aqua 0rem 0rem .5rem, aqua 0rem 0rem 1rem inset;;
+                display: flex;
+                align-items:center;
+            }
     }
     #pokemon-img-container {
         display: flex; 
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         flex-direction:column;
-        border: 1px solid green;
-        width: 45%;
+        width: 40%;
+            #pokemon-name {
+                padding: 1rem 5rem;
+                text-shadow: aqua 0rem 0rem 1rem;
+                color:#0AC;
+                text-decoration: underline #0AC 4px;
+                font-size: 5rem;
+                margin:.5rem;
+            }
+            h3 {
+                color:#0AC;
+            }
             #pokemon-image {
                 width: 20rem;
             }
@@ -38,12 +73,21 @@
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
-        border: 1px solid green;
         width: 30%;
+            h2 {
+                border: 1px solid #0AC;
+                padding: .5rem 3rem;
+                border-radius: 30px 10px 30px 10px;
+                box-shadow: aqua 0rem 0rem .5rem, aqua 0rem 0rem 1rem inset;
+            }
             #moves-container {
-
+                border: 1px solid #0AC;
+                padding: 2rem;
+                border-radius: 10px 50px 30px;
+                box-shadow: aqua 0rem 0rem .5rem, aqua 0rem 0rem 1rem inset;
+                display: flex;
+                align-items:center;
                 ul {
-
                     li{
                         list-style: none;
                     }
@@ -53,9 +97,37 @@
     }
 }
 #search-container {
-    border: 1px solid yellow;
     height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    #search {
+        padding: .5rem 5rem;
+        border-radius: 10px 50px 10px 50px;
+        box-shadow: aqua 0rem 0rem .5rem, aqua 0rem 0rem 1rem inset;
+    }
+    #run {
+        border-radius: 10px 50px 10px 50px;
+        padding: .5rem 5rem;
+        background: transparent;
+        box-shadow: aqua 0rem 0rem .5rem, aqua 0rem 0rem 1rem inset;
+    }
 }
+// #btns-container {
+//     display: flex;
+//     justify-content: space-around;
+//     .btns {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         padding: .8rem;
+//         border-radius: 50%;
+//         background: transparent;
+//         border: none;
+//         i {
+//             font-size: 2.2rem;
+//             color: aqua;
+//             text-shadow: aqua 0rem 0rem 1rem;;
+//         }
+//     }
+// }

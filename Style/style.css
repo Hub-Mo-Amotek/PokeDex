@@ -1,9 +1,10 @@
 #Header-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 #Header-container h1 {
   background-color: aqua;
+  border: 1px solid #0AC;
   border-radius: 10px 70px;
   padding: 1rem 10rem;
   box-shadow: aqua 0rem 0rem 2rem;
@@ -13,23 +14,57 @@
   height: 70vh;
   display: flex;
   justify-content: center;
-  border: 1px solid red;
 }
 #pokemon-section #type-container {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  border: 1px solid green;
-  width: 25%;
+  width: 30%;
+}
+#pokemon-section #type-container h2 {
+  border: 1px solid #0AC;
+  padding: 0.5rem 3rem;
+  border-radius: 30px 10px 30px 10px;
+  box-shadow: aqua 0rem 0rem 0.5rem, aqua 0rem 0rem 1rem inset;
+}
+#pokemon-section #type-container #pokemon-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#pokemon-section #type-container #pokemon-type h3 {
+  background: aqua;
+  border: 1px solid #0AC;
+  padding: 0.2rem 1rem;
+  border-radius: 30px;
+  box-shadow: aqua 0rem 0rem 0.5rem;
+}
+#pokemon-section #type-container #previous-evo-container {
+  border: 1px solid #0AC;
+  padding: 2rem;
+  border-radius: 10px 50px 30px;
+  box-shadow: aqua 0rem 0rem 0.5rem, aqua 0rem 0rem 1rem inset;
+  display: flex;
+  align-items: center;
 }
 #pokemon-section #pokemon-img-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid green;
-  width: 45%;
+  width: 40%;
+}
+#pokemon-section #pokemon-img-container #pokemon-name {
+  padding: 1rem 5rem;
+  text-shadow: aqua 0rem 0rem 1rem;
+  color: #0AC;
+  text-decoration: underline #0AC 4px;
+  font-size: 5rem;
+  margin: 0.5rem;
+}
+#pokemon-section #pokemon-img-container h3 {
+  color: #0AC;
 }
 #pokemon-section #pokemon-img-container #pokemon-image {
   width: 20rem;
@@ -39,19 +74,42 @@
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  border: 1px solid green;
   width: 30%;
+}
+#pokemon-section #pokemon-info-container h2 {
+  border: 1px solid #0AC;
+  padding: 0.5rem 3rem;
+  border-radius: 30px 10px 30px 10px;
+  box-shadow: aqua 0rem 0rem 0.5rem, aqua 0rem 0rem 1rem inset;
+}
+#pokemon-section #pokemon-info-container #moves-container {
+  border: 1px solid #0AC;
+  padding: 2rem;
+  border-radius: 10px 50px 30px;
+  box-shadow: aqua 0rem 0rem 0.5rem, aqua 0rem 0rem 1rem inset;
+  display: flex;
+  align-items: center;
 }
 #pokemon-section #pokemon-info-container #moves-container ul li {
   list-style: none;
 }
 
 #search-container {
-  border: 1px solid yellow;
   height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#search-container #search {
+  padding: 0.5rem 5rem;
+  border-radius: 10px 50px 10px 50px;
+  box-shadow: aqua 0rem 0rem 0.5rem, aqua 0rem 0rem 1rem inset;
+}
+#search-container #run {
+  border-radius: 10px 50px 10px 50px;
+  padding: 0.5rem 5rem;
+  background: transparent;
+  box-shadow: aqua 0rem 0rem 0.5rem, aqua 0rem 0rem 1rem inset;
 }
 
 /*# sourceMappingURL=style.css.map */
