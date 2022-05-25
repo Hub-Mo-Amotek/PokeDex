@@ -78,7 +78,7 @@ async function getPokemon() {
             evoChainTarget.innerHTML += `<p>${evoChain.chain.species.name} </p>`;
             evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].species.name} </p>`;
             evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].evolves_to[0].species.name} </p>`;
-
+            evoChainTarget.innerHTML += `<img src="${evoChain.sprites}"`
 
         }
 
