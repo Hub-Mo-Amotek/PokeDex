@@ -58,6 +58,19 @@ async function getPokemon() {
         evolutionTarget.innerHTML += `<h3>No previous form</h3>`;
         previousEvoImg.setAttribute('src', 'images/pokeball-icon-27049.png');
     }
+    let evoChainTarget = document.getElementById('evo-chain');
+    console.log(evolution.evolution_chain.url);
+    let evoChainApi = await fetch(`${evolution.evolution_chain.url}`)
+    let evoChain = await evoChainApi.json();
+    console.log(evoChain);
+    console.log(evoChain.chain.species.name);
+    console.log(evoChain.chain.evolves_to[0].species.name);
+    console.log(evoChain.chain.evolves_to.length);
+    evoChainTarget.innerHTML = `<li>${evoChain.chain.species.name}</li>`;
+
+    for ( let i = 0; i < evoChain.chain.evolves_to.length; i++) {
+        console.log(evoChain.chain.evolves_to[i].species.name);
+    }
     
 }
 

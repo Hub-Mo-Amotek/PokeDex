@@ -159,6 +159,18 @@ body {
   border-radius: 20px;
   list-style: none;
 }
+#pokemon-section #pokemon-info-container #evo-chain-div {
+  height: 5rem;
+}
+#pokemon-section #pokemon-info-container #evo-chain-div ul#evo-chain {
+  display: flex;
+}
+#pokemon-section #pokemon-info-container #evo-chain-div ul#evo-chain li {
+  list-style: none;
+}
+#pokemon-section #pokemon-info-container #evo-chain-div ul#evo-chain li img {
+  width: 4rem;
+}
 
 #search-container {
   margin: 6rem;

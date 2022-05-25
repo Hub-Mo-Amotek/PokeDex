@@ -161,7 +161,9 @@ body {
                 }
             }
             #evo-chain-div {
-                ul{
+                height: 5rem;
+                ul#evo-chain{
+                    display: flex;
                     li{
                         list-style: none;
                         img{
