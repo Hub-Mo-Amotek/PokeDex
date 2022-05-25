@@ -145,19 +145,15 @@ body {
                 h3 {
                     font-size: 1.5rem;
                 }
-                ul{
-                    li{
-                        display:flex;
-                        justify-content: center;
-                        align-items: center;
+                #evo-chain{
                         font-size: 1.2rem;
                         color: aqua;
                         margin: .5rem;
                         border: 1px solid #0AC;
                         padding: .5rem 1rem;
                         border-radius: 20px;
-                        list-style: none;
-                    }
+                        overflow: auto;
+                        height: 10px;
                 }
             }
             #evo-chain-div {

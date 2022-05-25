@@ -147,17 +147,15 @@ body {
 #pokemon-section #pokemon-info-container #moves-container h3 {
   font-size: 1.5rem;
 }
-#pokemon-section #pokemon-info-container #moves-container ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#pokemon-section #pokemon-info-container #moves-container #evo-chain {
   font-size: 1.2rem;
   color: aqua;
   margin: 0.5rem;
   border: 1px solid #0AC;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  list-style: none;
+  overflow: auto;
+  height: 10px;
 }
 #pokemon-section #pokemon-info-container #evo-chain-div {
   height: 5rem;

@@ -63,14 +63,25 @@ async function getPokemon() {
     let evoChainApi = await fetch(`${evolution.evolution_chain.url}`)
     let evoChain = await evoChainApi.json();
     console.log(evoChain);
-    console.log(evoChain.chain.species.name);
-    console.log(evoChain.chain.evolves_to[0].species.name);
-    console.log(evoChain.chain.evolves_to.length);
-    evoChainTarget.innerHTML = `<li>${evoChain.chain.species.name}</li>`;
+    // console.log(evoChain.chain.species.name);
+    // console.log(evoChain.chain.evolves_to[0].species.name);
+    // console.log(evoChain.chain.evolves_to.length);
+    evoChainTarget.innerHTML = ``;
 
-    for ( let i = 0; i < evoChain.chain.evolves_to.length; i++) {
-        console.log(evoChain.chain.evolves_to[i].species.name);
-    }
+        if (evoChain.chain.evolves_to.length > 3) {
+            for ( let i = 0; i < evoChain.chain.evolves_to.length; i++) {
+                console.log(evoChain.chain.evolves_to[i].species.name);
+                evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[i].species.name} </p>`;
+            }
+        }
+        else {
+            evoChainTarget.innerHTML += `<p>${evoChain.chain.species.name} </p>`;
+            evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].species.name} </p>`;
+            evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].evolves_to[0].species.name} </p>`;
+
+
+        }
+
     
 }
 
