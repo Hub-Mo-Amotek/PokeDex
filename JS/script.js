@@ -15,10 +15,11 @@ async function getPokemon() {
     let evolutionTarget = document.getElementById('evolution');
     let previousEvoImg = document.getElementById('prevEvoImg');
     let abilityInfoTarget = document.getElementById('Pokemon-info');
+    let ApiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
 
-    let Api = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
-    let Pokemon = await Api.json();
+    let PokemonApi = await fetch(`${ApiUrl}${input}`);
+    let Pokemon = await PokemonApi.json();
     PokeName.innerHTML = Pokemon.name;
     PokeImage.setAttribute('src', Pokemon.sprites.other.home.front_default)
     PokeId.innerHTML = `#${Pokemon.id}`;
@@ -36,7 +37,6 @@ async function getPokemon() {
     abilityInfoTarget.innerHTML = ''
     for (let i = 0; i < Pokemon.abilities.length; i++) {
         abilityInfoTarget.innerHTML += `<li class="abilityLi">${Pokemon.abilities[i].ability.name}</li>`;
-        console.log(Pokemon.abilities[i].ability.name);
     }
 
     type.innerHTML = ''
@@ -63,22 +63,42 @@ async function getPokemon() {
     let evoChainApi = await fetch(`${evolution.evolution_chain.url}`)
     let evoChain = await evoChainApi.json();
     console.log(evoChain);
-    // console.log(evoChain.chain.species.name);
-    // console.log(evoChain.chain.evolves_to[0].species.name);
-    // console.log(evoChain.chain.evolves_to.length);
+    console.log(ApiUrl);
+    console.log(evoChain.chain.species.name);
+    console.log(evoChain.chain.evolves_to[0].species.name);
+    // console.log(evoChain.chain.evolves_to[0].evolves_to[0].species.name);
+    console.log(evoChain.chain.evolves_to.length);
     evoChainTarget.innerHTML = ``;
 
-        if (evoChain.chain.evolves_to.length > 3) {
+
+        if (evoChain.chain.evolves_to.length > 1) {
+            evoChainTarget.innerHTML = `<h2> evolution chain </h2>`;
+            getEvoImageApi = await fetch(`${ApiUrl}${evoChain.chain.species.name}`)
+            getEvoImage = await getEvoImageApi.json();
+            evoChainTarget.innerHTML += `<p>${evoChain.chain.species.name} </p><img src="${getEvoImage.sprites.front_default}">`;
             for ( let i = 0; i < evoChain.chain.evolves_to.length; i++) {
-                console.log(evoChain.chain.evolves_to[i].species.name);
-                evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[i].species.name} </p>`;
+                getEvoImageApi = await fetch(`${ApiUrl}${evoChain.chain.evolves_to[i].species.name}`)
+                getEvoImage = await getEvoImageApi.json();
+                evoChainTarget.innerHTML += ` <p> ${getEvoImage.name} </p> <img src="${getEvoImage.sprites.front_default}">`;            
             }
         }
         else {
-            evoChainTarget.innerHTML += `<p>${evoChain.chain.species.name} </p>`;
-            evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].species.name} </p>`;
-            evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].evolves_to[0].species.name} </p>`;
-            evoChainTarget.innerHTML += `<img src="${evoChain.sprites}"`
+            evoChainTarget.innerHTML = `<h2> evolution chain </h2>`;
+            getEvoImageApi = await fetch(`${ApiUrl}${evoChain.chain.species.name}`)
+            getEvoImage = await getEvoImageApi.json();
+            evoChainTarget.innerHTML += `<p>${evoChain.chain.species.name} </p><img src="${getEvoImage.sprites.front_default}">`;
+            for (i = 0; i < evoChain.chain.evolves_to.length; i++) {
+                getEvoImageApi = await fetch(`${ApiUrl}${evoChain.chain.evolves_to[i].species.name}`)
+                getEvoImage = await getEvoImageApi.json();
+                console.log(getEvoImage);
+                evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[i].species.name} </p><img src="${getEvoImage.sprites.front_default}">`;
+                for (j = 0; j < evoChain.chain.evolves_to[i].evolves_to.length; j++) {
+                    getEvoImageApi = await fetch(`${ApiUrl}${evoChain.chain.evolves_to[i].evolves_to[j].species.name}`)
+                    getEvoImage = await getEvoImageApi.json();
+                    console.log(getEvoImage);
+                    evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].evolves_to[0].species.name} </p> <img src="${getEvoImage.sprites.front_default}">`;
+                }
+            }
 
         }
 

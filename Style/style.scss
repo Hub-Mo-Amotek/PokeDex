@@ -145,16 +145,7 @@ body {
                 h3 {
                     font-size: 1.5rem;
                 }
-                #evo-chain{
-                        font-size: 1.2rem;
-                        color: aqua;
-                        margin: .5rem;
-                        border: 1px solid #0AC;
-                        padding: .5rem 1rem;
-                        border-radius: 20px;
-                        overflow: auto;
-                        height: 10px;
-                }
+
             }
             #evo-chain-div {
                 height: 5rem;
@@ -191,4 +182,23 @@ body {
         box-shadow: aqua 0rem 0rem .5rem, aqua 0rem 0rem 1rem inset;
     }
 }
-
+#evo-chain{
+    font-size: 1.2rem;
+    color: aqua;
+    margin: .5rem;
+    border: 1px solid #0AC;
+    border-radius: 20px;
+    width: 60%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+        img {
+            margin: -.5rem;
+        }
+        p {
+            margin: .1rem;
+        }
+}
