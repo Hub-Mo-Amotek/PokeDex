@@ -71,7 +71,7 @@ async function getPokemon() {
     evoChainTarget.innerHTML = ``;
 
 
-        if (evoChain.chain.evolves_to.length > 1) {
+        if (evoChain.chain.evolves_to.length > 3) {
             evoChainTarget.innerHTML = `<h2> evolution chain </h2>`;
             getEvoImageApi = await fetch(`${ApiUrl}${evoChain.chain.species.name}`)
             getEvoImage = await getEvoImageApi.json();
@@ -96,7 +96,7 @@ async function getPokemon() {
                     getEvoImageApi = await fetch(`${ApiUrl}${evoChain.chain.evolves_to[i].evolves_to[j].species.name}`)
                     getEvoImage = await getEvoImageApi.json();
                     console.log(getEvoImage);
-                    evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[0].evolves_to[0].species.name} </p> <img src="${getEvoImage.sprites.front_default}">`;
+                    evoChainTarget.innerHTML += `<p>${evoChain.chain.evolves_to[j].evolves_to[j].species.name} </p> <img src="${getEvoImage.sprites.front_default}">`;
                 }
             }
 
